@@ -2,7 +2,7 @@ const express = require('express')
 import * as dotenv from 'dotenv'  
 dotenv.config()
 const port = process.env.port 
-// import db from './models'
+import db from './models'
 // import DoctorRouter from './controllers/doctors.routes'
 
 
@@ -21,8 +21,8 @@ app.get('/',(req: any,res: { send: (arg0: any) => void }) :void =>{
 })
 
 
-// db.sequelize.sync().then(()=>{
+db.sequelize.sync().then(()=>{
     app.listen(process.env.port,()=>{
         console.log(`App is running on port ${process.env.port}`)
     })
-// })
+})
